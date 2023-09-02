@@ -94,7 +94,7 @@ public class SpellCheck : ISpellCheck
 
     public void CheckText(string text)
     {
-        var document = Markdown.Parse(text);
+        var document = text.GetMarkdownDocument();
 
         foreach (var block in document.Descendants().Where(x => x is Block))
         {
