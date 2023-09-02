@@ -1,5 +1,0 @@
-/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/netstandard2.0/SpellCheck.csproj.AssemblyReference.cache
-/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/netstandard2.0/SpellCheck.GeneratedMSBuildEditorConfig.editorconfig
-/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/netstandard2.0/SpellCheck.AssemblyInfoInputs.cache
-/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/netstandard2.0/SpellCheck.AssemblyInfo.cs
-/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/netstandard2.0/SpellCheck.csproj.CoreCompileInputs.cache
