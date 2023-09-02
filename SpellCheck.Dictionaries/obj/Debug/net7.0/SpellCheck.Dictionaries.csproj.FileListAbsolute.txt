@@ -1,0 +1,15 @@
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/bin/Debug/net7.0/SpellCheck.Dictionaries.deps.json
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/bin/Debug/net7.0/SpellCheck.Dictionaries.dll
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/bin/Debug/net7.0/SpellCheck.Dictionaries.pdb
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/bin/Debug/net7.0/SpellCheck.dll
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/bin/Debug/net7.0/SpellCheck.pdb
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/SpellCheck.Dictionaries.csproj.AssemblyReference.cache
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/SpellCheck.Dictionaries.GeneratedMSBuildEditorConfig.editorconfig
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/SpellCheck.Dictionaries.AssemblyInfoInputs.cache
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/SpellCheck.Dictionaries.AssemblyInfo.cs
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/SpellCheck.Dictionaries.csproj.CoreCompileInputs.cache
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/SpellCheck.Dictionaries.csproj.CopyComplete
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/SpellCheck.Dictionaries.dll
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/refint/SpellCheck.Dictionaries.dll
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/SpellCheck.Dictionaries.pdb
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/Debug/net7.0/ref/SpellCheck.Dictionaries.dll

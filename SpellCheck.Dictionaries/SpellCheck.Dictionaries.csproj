@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SpellCheck\SpellCheck.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="de_DE.aff" />
+      <EmbeddedResource Include="de_DE.aff" />
+      <None Remove="de_DE.dic" />
+      <EmbeddedResource Include="de_DE.dic" />
+      <None Remove="en_US.aff" />
+      <EmbeddedResource Include="en_US.aff" />
+      <None Remove="en_US.dic" />
+      <EmbeddedResource Include="en_US.dic" />
+      <None Remove="es_ES.aff" />
+      <EmbeddedResource Include="es_ES.aff" />
+      <None Remove="fr_FR.aff" />
+      <EmbeddedResource Include="fr_FR.aff" />
+      <None Remove="fr_FR.dic" />
+      <EmbeddedResource Include="fr_FR.dic" />
+      <None Remove="it_IT.aff" />
+      <EmbeddedResource Include="it_IT.aff" />
+      <None Remove="it_IT.dic" />
+      <EmbeddedResource Include="it_IT.dic" />
+      <None Remove="pl_PL.aff" />
+      <EmbeddedResource Include="pl_PL.aff" />
+      <None Remove="pl_PL.dic" />
+      <EmbeddedResource Include="pl_PL.dic" />
+      <None Remove="pt_PT.aff" />
+      <EmbeddedResource Include="pt_PT.aff" />
+      <None Remove="pt_PT.dic" />
+      <EmbeddedResource Include="pt_PT.dic" />
+      <None Remove="es_ES.dic" />
+      <EmbeddedResource Include="es_ES.dic" />
+      <None Remove="en_GB.aff" />
+      <EmbeddedResource Include="en_GB.aff" />
+      <None Remove="en_GB.dic" />
+      <EmbeddedResource Include="en_GB.dic" />
+    </ItemGroup>
+
+</Project>

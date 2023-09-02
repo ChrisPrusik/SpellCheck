@@ -1,0 +1,159 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "Markdig/0.32.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "WeCantSpell.Hunspell/4.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/WeCantSpell.Hunspell.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/WeCantSpell.Hunspell.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SpellCheck/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Markdig": "0.32.0",
+          "WeCantSpell.Hunspell": "4.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SpellCheck.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SpellCheck.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Markdig/0.32.0": {
+      "sha512": "+e6YobdcPgV5AsSgGqOi9B7biDgw2Fi4ZHRamwecvDeCEh5WFTlIClmKQP+CMkYUP9jwz7NANuwN2HC79kll4Q==",
+      "type": "package",
+      "path": "markdig/0.32.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/Markdig.dll",
+        "lib/net462/Markdig.xml",
+        "lib/net6.0/Markdig.dll",
+        "lib/net6.0/Markdig.xml",
+        "lib/netstandard2.0/Markdig.dll",
+        "lib/netstandard2.0/Markdig.xml",
+        "lib/netstandard2.1/Markdig.dll",
+        "lib/netstandard2.1/Markdig.xml",
+        "markdig.0.32.0.nupkg.sha512",
+        "markdig.nuspec",
+        "markdig.png",
+        "readme.md"
+      ]
+    },
+    "WeCantSpell.Hunspell/4.0.0": {
+      "sha512": "E4A73NTAk25LSmxage9AdT4EE+4KSGFCpjGog2nucPjA+pcgdXmktQjIp+t8dQWExh2eHJbzNJYDt/A0A1Dwbw==",
+      "type": "package",
+      "path": "wecantspell.hunspell/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/WeCantSpell.Hunspell.dll",
+        "lib/net6.0/WeCantSpell.Hunspell.xml",
+        "lib/netstandard2.0/WeCantSpell.Hunspell.dll",
+        "lib/netstandard2.0/WeCantSpell.Hunspell.xml",
+        "license.txt",
+        "readme.md",
+        "wecantspell.hunspell.4.0.0.nupkg.sha512",
+        "wecantspell.hunspell.nuspec"
+      ]
+    },
+    "SpellCheck/1.0.0": {
+      "type": "project",
+      "path": "../SpellCheck/SpellCheck.csproj",
+      "msbuildProject": "../SpellCheck/SpellCheck.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "SpellCheck >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/chrisprusik/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/SpellCheck.Dictionaries.csproj",
+      "projectName": "SpellCheck.Dictionaries",
+      "projectPath": "/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/SpellCheck.Dictionaries.csproj",
+      "packagesPath": "/Users/chrisprusik/.nuget/packages/",
+      "outputPath": "/Users/chrisprusik/GitHub/SpellCheck/SpellCheck.Dictionaries/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/chrisprusik/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {
+            "/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/SpellCheck.csproj": {
+              "projectPath": "/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/SpellCheck.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

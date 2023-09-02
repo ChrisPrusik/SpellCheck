@@ -1,0 +1,12 @@
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/bin/Debug/net7.0/SpellCheck.deps.json
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/bin/Debug/net7.0/SpellCheck.dll
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/bin/Debug/net7.0/SpellCheck.pdb
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/net7.0/SpellCheck.csproj.AssemblyReference.cache
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/net7.0/SpellCheck.GeneratedMSBuildEditorConfig.editorconfig
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/net7.0/SpellCheck.AssemblyInfoInputs.cache
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/net7.0/SpellCheck.AssemblyInfo.cs
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/net7.0/SpellCheck.csproj.CoreCompileInputs.cache
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/net7.0/SpellCheck.dll
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/net7.0/refint/SpellCheck.dll
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/net7.0/SpellCheck.pdb
+/Users/chrisprusik/GitHub/SpellCheck/SpellCheck/obj/Debug/net7.0/ref/SpellCheck.dll
