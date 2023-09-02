@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace SpellCheck.Dictionaries;
 

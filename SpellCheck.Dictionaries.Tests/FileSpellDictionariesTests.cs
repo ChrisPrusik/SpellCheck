@@ -1,4 +1,6 @@
 using System.Globalization;
+using System.IO;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace SpellCheck.Dictionaries.Tests;

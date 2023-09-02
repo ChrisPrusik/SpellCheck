@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Markdig;
 using Markdig.Syntax;
 using Microsoft.VisualBasic;
@@ -78,6 +79,7 @@ public class StringExtensionsTests
     [InlineData(typeof(HeadingBlock), "text markdown")]
     [InlineData(typeof(HeadingBlock), "# title", "# title")]
     [InlineData(typeof(HeadingBlock), markDownText, "# Header", "## Another header")]
+    [SuppressMessage("Usage", "xUnit1010:The value is not convertible to the method parameter type")]
     public void GetSubstring(Type type, string text, params string[] expectedResult)
     {
         var markdownDocument = text.GetMarkdownDocument();
