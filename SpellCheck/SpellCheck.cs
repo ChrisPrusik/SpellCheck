@@ -96,55 +96,24 @@ public class SpellCheck : ISpellCheck
     {
         var document = text.GetMarkdownDocument();
 
-        foreach (var block in document.Descendants().Where(x => x is Block))
+        foreach (var leaf in document.Descendants<LeafInline>())
         {
-            if (block is ParagraphBlock paragraph)
-                CheckParagraphBlock(paragraph, text);
-            else if (block is HeadingBlock heading)
-                CheckHeadingBlock(heading, text);
+            if (leaf.Span.Length <= 0)
+                continue;
+
+            CheckWordsInLeaf(text, leaf);
         }
     }
 
-    private void CheckHeadingBlock(HeadingBlock heading, string text)
+    private void CheckWordsInLeaf(string text, LeafInline leaf)
     {
-        CheckWordsInBlock(heading, text);
+        foreach (var word in text.GetSubstring(leaf).GetWords()) 
+            CheckWord(leaf, word);
     }
 
-    private void CheckParagraphBlock(ParagraphBlock block, string text)
+    private void CheckWord(LeafInline leaf, string word)
     {
-        CheckWordsInBlock(block, text);
+        if (IsWordCorrect(word) is false)
+            throw new SpellCheckException(leaf, $"Incorrect word '{word}' in the text '{leaf}'.");
     }
-
-    private void CheckWordsInBlock(Block block, string text)
-    {
-        var checkText = GetTextFromBlock(block, text);
-        foreach (var word in checkText.GetWords())
-            if (IsWordCorrect(word) is false)
-                throw new SpellCheckException(block, $"Bad word '{word}' in the paragraph '{checkText}'.");
-    }
-    
-    private string GetMarkdownText(MarkdownObject item, string text) => 
-        text.Substring(item.Span.Start, item.Span.Length);
-
-    private string GetTextFromBlock(Block block, string text)
-    {
-        // return text.Substring((MarkdownObject)block);
-        var result = GetMarkdownText(block, text);
-        return result;
-    }
-    
-    private string RemoveUncheckedInlines(Inline inline, string text)
-    {
-        if (inline is LinkInline or AutolinkInline or CodeInline or HtmlEntityInline or HtmlInline)
-            return RemoveUnusedInline(inline, text); 
-        
-        if (inline is LiteralInline)
-            return text.Remove(inline.Span.Start, inline.Span.Length).Insert(inline.Span.Start, new string(' ', inline.Span.Length));
-
-        return text;
-    }
-
-    private string RemoveUnusedInline(Inline inline, string text) => 
-        text.Remove(inline.Span.Start, inline.Span.Length).Insert(inline.Span.Start, new string(' ', inline.Span.Length));
-
 }

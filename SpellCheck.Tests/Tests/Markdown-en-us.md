@@ -1,17 +1,5 @@
----
-__Advertisement :)__
-
-- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
-  resize in browser.
-- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
-  i18n with plurals support and easy syntax.
-
-You will like those projects!
-
----
-
 # Heading 8-)
-## Heading
+# Heading
 ### Heading
 #### Heading
 ##### Heading
@@ -25,7 +13,6 @@ ___
 ---
 
 ***
-
 
 ## Typographic replacements
 
@@ -50,13 +37,13 @@ __This is bold text__
 
 _This is italic text_
 
-~~Strikethrough~~
+~~Strikeout~~
 
 
-## Blockquotes
+## Block quotes
 
 
-> Blockquotes can also be nested...
+> Block quotes can also be nested...
 >> ...by using additional greater-than signs right next to each other...
 > > > ...or with spaces between arrows.
 
@@ -68,16 +55,16 @@ Unordered
 + Create a list by starting a line with `+`, `-`, or `*`
 + Sub-lists are made by indenting 2 spaces:
     - Marker character change forces new list start:
-        * Ac tristique libero volutpat at
-        + Facilisis in pretium nisl aliquet
-        - Nulla volutpat aliquam velit
+        * Line 1
+        + Line 2
+        - Line 3
 + Very easy!
 
 Ordered
 
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
+1. Ordered text 1
+2. Ordered text 2
+3. Ordered text 3
 
 
 1. You can use sequential numbers...
@@ -91,7 +78,7 @@ Start numbering with offset:
 
 ## Code
 
-Inline `code`
+Code `code` in the paragraph
 
 Indented code
 
@@ -119,19 +106,19 @@ console.log(foo(5));
 
 ## Tables
 
-| Option | Description |
-| ------ | ----------- |
+| Option | Description                                                               |
+| ------ |---------------------------------------------------------------------------|
 | data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+| engine | engine to be used for processing templates. Handlebars is the default.    |
+| ext    | extension to be used for destination files.                               |
 
 Right aligned columns
 
-| Option | Description |
-| ------:| -----------:|
+| Option |                                                               Description |
+| ------:|--------------------------------------------------------------------------:|
 | data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+| engine |    engine to be used for processing templates. Handlebars is the default. |
+| ext    |                               extension to be used for destination files. |
 
 
 ## Links
@@ -140,70 +127,21 @@ Right aligned columns
 
 [link with title](http://nodeca.github.io/pica/demo/ "title text!")
 
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+Automated conversion for links https://github.com/nodeca/pica (enable option to see)
 
 
 ## Images
 
 ![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Image name](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
 Like links, Images also have a footnote style syntax
 
-![Alt text][id]
+![Alternative text][id]
 
 With a reference later in the document defining the URL location:
 
-[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
-
-
-## Plugins
-
-The killer feature of `markdown-it` is very effective support of
-[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
-
-
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
-
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
-
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
-
-
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
-
-- 19^th^
-- H~2~O
-
-
-### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
-
-++Inserted text++
-
-
-### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
-
-==Marked text==
-
-
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
-
-Footnote 1 link[^first].
-
-Footnote 2 link[^second].
-
-Inline footnote^[Text of inline footnote] definition.
-
-Duplicated footnote reference[^second].
-
-[^first]: Footnote **can have markup**
-
-    and multiple paragraphs.
-
-[^second]: Footnote text.
-
+[id]: https://octodex.github.com/images/dojocat.jpg  "The cat"
 
 ### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
 
@@ -212,7 +150,7 @@ Term 1
 :   Definition 1
 with lazy continuation.
 
-Term 2 with *inline markup*
+Term 2 with *markup in the line*
 
 :   Definition 2
 
@@ -232,14 +170,3 @@ Term 2
 
 ### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
 
-This is HTML abbreviation example.
-
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
-
-*[HTML]: Hyper Text Markup Language
-
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
-::: warning
-*here be dragons*
-:::

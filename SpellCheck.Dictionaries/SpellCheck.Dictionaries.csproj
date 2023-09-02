@@ -30,10 +30,10 @@
       <None Remove="it_IT.dic" />
       <EmbeddedResource Include="it_IT.dic" />
       <None Remove="pl_PL.aff" />
-      <EmbeddedResource Include="pl_PL.aff" />
       <None Remove="pl_PL.dic" />
-      <EmbeddedResource Include="pl_PL.dic" />
       <None Remove="pt_PT.aff" />
+      <EmbeddedResource Include="pl_PL.aff" />
+      <EmbeddedResource Include="pl_PL.dic" />
       <EmbeddedResource Include="pt_PT.aff" />
       <None Remove="pt_PT.dic" />
       <EmbeddedResource Include="pt_PT.dic" />
@@ -44,5 +44,6 @@
       <None Remove="en_GB.dic" />
       <EmbeddedResource Include="en_GB.dic" />
     </ItemGroup>
+
 
 </Project>

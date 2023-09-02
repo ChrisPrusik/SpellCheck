@@ -18,9 +18,9 @@ public class ComplexSpellCheckTests : IClassFixture<Fixture>
     }
 
     [Theory]
+    [InlineData("en", "markdown-en-us.md")]
     [InlineData("en", "test-en-us.txt")]
     [InlineData("pl", "test-pl-pl.txt")]
-    [InlineData("en", "markdown-en-us.md")]
     public void CheckTextPositive(string language, string fileName)
     {
         if (spellCheckers.ContainsKey(language) is false)

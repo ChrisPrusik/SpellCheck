@@ -4,12 +4,14 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using SpellCheck.Dictionaries.Extensions;
 
 namespace SpellCheck.Dictionaries;
 
 public class SpellCheckFactory : ISpellCheckFactory
 {
-    public string DictionaryDirectory { get; set; } = string.Empty;
+    public string? DictionaryDirectory { get; set; } = null;
+    
     public SpellCheckFactory(string? dictionaryDirectory = null)
     {
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -36,76 +38,21 @@ public class SpellCheckFactory : ISpellCheckFactory
     public async Task<SpellCheck> CreateSpellCheck(CultureInfo culture, 
         params string[] ignoredWords)
     {
-        var dictionary = GetStream(culture, "dic");
+        var dictionary = culture.GetSpellCheckStream(DictionaryTypes.Dictionary, DictionaryDirectory);
         if (dictionary is null)
             throw new Exception($"Dictionary for '{culture.Name}' not found.");
         
-        var aff = GetStream(culture, "aff");
+        var aff = culture.GetSpellCheckStream(DictionaryTypes.Affix, DictionaryDirectory);
         if (aff is null)
             throw new Exception($"Affix for '{culture.Name}' not found.");
         
         return await SpellCheck.CreateFromStreams(dictionary, aff, ignoredWords);
     }
 
-    private Stream? GetStream(CultureInfo culture, string extension)
-    {
-        var stream = GetFileStream(culture, extension);
-        if (stream is not null)
-            return stream;
-        
-        stream = GetResourceStream(culture, extension);
-        return stream;
-    }
+    public bool Contains(CultureInfo culture) =>
+        culture.GetSpellCheckStream(DictionaryTypes.Dictionary, DictionaryDirectory) is not null &&
+        culture.GetSpellCheckStream(DictionaryTypes.Affix, DictionaryDirectory) is not null;
 
-    private Stream? GetFileStream(CultureInfo culture, string extension)
-    {
-        foreach (var fileName in GetFileNamesToCheck(culture, extension))
-        {
-            var path = Path.GetFullPath(Path.Combine(DictionaryDirectory, fileName));
-            if (File.Exists(fileName))
-                return File.OpenRead(fileName);
-        }
-
-        return null;
-    }
-
-    private Stream? GetResourceStream(CultureInfo culture, string extension)
-    {
-        foreach(var name in GetFileNamesToCheck(culture, extension))
-        {
-            var stream = Assembly.GetExecutingAssembly()
-                .GetManifestResourceStream($"SpellCheck.Dictionaries.{name}");
-            if (stream is not null)
-                return stream;
-        }
-
-        return null;
-    }
-
-    public bool Contains(CultureInfo culture)
-    {
-        return GetStream(culture, "dic") is not null &&
-            GetStream(culture, "aff") is not null;
-    }
-
-    public bool Contains(string language)
-    {
-        return Contains(new CultureInfo(language));
-    }
-
-    private string[] GetFileNamesToCheck(CultureInfo culture, string extension)
-    {
-        return new[]
-        {
-            $"{culture.Name}.{extension}",
-            $"{culture.Name}.{extension}".Replace("-", "_"),
-            $"{culture.Name}_{culture.Name}.{extension}",
-            $"{culture.Name}-{culture.Name}.{extension}",
-            $"{culture.EnglishName}.{extension}",
-            $"{culture.NativeName}.{extension}",
-            $"{culture.ThreeLetterISOLanguageName}.{extension}",
-            $"{culture.ThreeLetterWindowsLanguageName}.{extension}",
-            $"{culture.TwoLetterISOLanguageName}.{extension}",
-        };
-    }
+    public bool Contains(string language) => 
+        Contains(new CultureInfo(language));
 }
