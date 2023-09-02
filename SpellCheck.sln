@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellCheck", "SpellCheck\SpellCheck.csproj", "{8D4319AE-2D33-400A-83FC-A95B594D17F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellCheck.Tests", "SpellCheck.Tests\SpellCheck.Tests.csproj", "{0F20DCC7-8E0D-4460-AEBC-098A25842F2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellCheck.Dictionaries", "SpellCheck.Dictionaries\SpellCheck.Dictionaries.csproj", "{211795FD-B17C-4C52-8C0B-CD8BDD30DE5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellCheck.Dictionaries.Tests", "SpellCheck.Dictionaries.Tests\SpellCheck.Dictionaries.Tests.csproj", "{4284A4B3-FBBE-4650-8328-A7E15278F042}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D4319AE-2D33-400A-83FC-A95B594D17F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4319AE-2D33-400A-83FC-A95B594D17F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4319AE-2D33-400A-83FC-A95B594D17F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4319AE-2D33-400A-83FC-A95B594D17F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F20DCC7-8E0D-4460-AEBC-098A25842F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F20DCC7-8E0D-4460-AEBC-098A25842F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F20DCC7-8E0D-4460-AEBC-098A25842F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F20DCC7-8E0D-4460-AEBC-098A25842F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{211795FD-B17C-4C52-8C0B-CD8BDD30DE5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{211795FD-B17C-4C52-8C0B-CD8BDD30DE5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{211795FD-B17C-4C52-8C0B-CD8BDD30DE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{211795FD-B17C-4C52-8C0B-CD8BDD30DE5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4284A4B3-FBBE-4650-8328-A7E15278F042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4284A4B3-FBBE-4650-8328-A7E15278F042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4284A4B3-FBBE-4650-8328-A7E15278F042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4284A4B3-FBBE-4650-8328-A7E15278F042}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
