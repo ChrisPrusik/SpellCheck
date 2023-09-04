@@ -1,4 +1,4 @@
-name: dotnet package
+name: main workflow
 
 on: [push]
 
@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-          source-url: https://api.nuget.org/v3/index.json
       - name: Restore
         run: dotnet restore
       - name: Build
