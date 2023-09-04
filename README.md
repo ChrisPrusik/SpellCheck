@@ -85,7 +85,7 @@ There are some built in dictionaries for the following languages:
 |--------------|---------|------------|------------|
 | Deutsch      | de-DE   | de_DE.dic  | de_DE.aff  |
 | English (US) | en-US   | en_US.dic  | en_US.aff  |
-| English (GB) | en-GB   | en_US.dic  | en_US.aff  |
+| English (GB) | en-GB   | en_GB.dic  | en_GB.aff  |
 | Español      | es-ES   | es_ES.dic  | es_ES.aff  |
 | Français     | fr-FR   | fr_FR.dic  | fr_FR.aff  |
 | Italiano     | it-IT   | it_IT.dic  | it_IT.aff  |
