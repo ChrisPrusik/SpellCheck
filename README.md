@@ -119,8 +119,8 @@ You can use these files by `SpellCheck` and `SpellCheckFactory` classes.
 If you're using the `SpellCheck` class alone, 
 the `*.dic` and `*.aff` files should be in UTF-8 format. 
 If they're not, you can convert them using the 
-[iconv tool](https://www.fileformat.info/tip/linux/iconv.htm)  
-or include the following code before the first use of the `SpellCheck` class:
+[iconv tool](https://www.fileformat.info/tip/linux/iconv.htm) or 
+include the following code before the first use of the `SpellCheck` class:
 
 ```csharp
 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
