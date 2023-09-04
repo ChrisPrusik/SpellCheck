@@ -16,7 +16,10 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+          source-url: https://api.nuget.org/v3/index.json
+      - name: Restore
+        run: dotnet restore
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release --no-restore
       - name: Test
-        run: dotnet test --verbosity normal
+        run: dotnet test --verbosity normal --no-restore
