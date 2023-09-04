@@ -1,4 +1,4 @@
-name: dotnet package
+name: main workflow
 
 on: [push]
 
@@ -21,4 +21,4 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Test
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test --verbosity normal --no-restore
