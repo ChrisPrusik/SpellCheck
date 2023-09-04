@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         dotnet-version: [ '7.0.x' ]
@@ -16,10 +16,6 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: MarkDig
-        run: dotnet add package MarkDig --version 0.33.0
-      - name: WeCantSpell.Huspell
-        run: dotnet add package WeCantSpell.Huspell --version 4.0.0
       - name: Restore
         run: dotnet restore
       - name: Build
