@@ -17,11 +17,11 @@
         <Company>ChrisPrusik</Company>
         <Copyright>Copyright (C) 2023 Krzysztof Prusik</Copyright>
         <Description>Offline spell-checking words within texts, including Markdown tags.
-            This library enables accurate detection of spelling errors
-            while considering the presence of Markdown formatting.
+This library enables accurate detection of spelling errors
+while considering the presence of Markdown formatting.
 
-            The library utilizes Open Office's *.dic and *.aff files
-            to support spell-checking in over 80 languages from around the world.
+The library utilizes Open Office's *.dic and *.aff files
+to support spell-checking in above 80 languages from around the world.
 
 The library containing built-in languages 
 de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, pt-PT

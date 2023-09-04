@@ -56,7 +56,7 @@ var isCorrect = spellChecker.IsWordCorrect("adsasd"); // false
 var isTextCorrect = spellChecker.IsTextCorrect("This is an example text."); // true
 
 // Get suggestions for an incorrect word
-var suggestions = spellChecker.SuggestWord("incurrect");
+var suggestions = spellChecker.SuggestWord("wor"); // ["world", "worm", "worn", "worst", "wore", "word"]
 
 // More advanced usage is possible as well
 ```
@@ -117,10 +117,11 @@ After downloading, change the file name extension `.sox` to `.zip` and open the 
 Unpack `*.dic` and `*.aff` files to the destination directory, an that's all. 
 You can use these files by `SpellCheck` and `SpellCheckFactory` classes.
 
-If you're using just `SpellCheck` class then the `*.dic` and `*.aff` 
-files should be in UTF-8 format. If not, you can convert them using the 
-[iconv](https://www.fileformat.info/tip/linux/iconv.htm) tool or 
-put the code before first use of `SpellCheck` class:
+If you're using the `SpellCheck` class alone, 
+the `*.dic` and `*.aff` files should be in UTF-8 format. 
+If they're not, you can convert them using the 
+[iconv tool](https://www.fileformat.info/tip/linux/iconv.htm)  
+or include the following code before the first use of the `SpellCheck` class:
 
 ```csharp
 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
