@@ -108,11 +108,10 @@ If the directory is not specified, the current directory is used.
 
 `SpellCheck` works with dictionaries and affix files comming from Open Office [Hunspell format](https://hunspell.github.io/).
 If you need more languages, you can download them from [this GitHub repository](https://github.com/titoBouzout/Dictionaries)
-and put them into destination directory to work with.
+and put them into destination directory to work with. These files are in UTF-8 format.
 
 Another way is to go to the website [softmaker.com](https://www.softmaker.com/en/download/dictionaries) 
-and download dictionary you wish. A total of 85 language dictionaries are available.
-
+and download dictionary you wish. A total of 85 language dictionaries are available. 
 After downloading, change the file name extension `.sox` to `.zip` and open the file. You should see some files inside.
 Unpack `*.dic` and `*.aff` files to the destination directory, an that's all. 
 You can use these files by `SpellCheck` and `SpellCheckFactory` classes.
