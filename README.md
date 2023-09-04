@@ -74,6 +74,9 @@ using SpellCheck.Dictionaries;
 var factory = new SpellCheckFactory();
 // Create a SpellCheck instance
 var spellChecker = factory.Create("en-US");
+
+// Create a SpellCheck instance from current culture
+var anotherSpellChecker = factory.Create(CultureInfo.CurrentCulture);
 ```
 
 There are some built in dictionaries for the following languages:
