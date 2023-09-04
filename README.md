@@ -106,7 +106,7 @@ var spellChecker = factory.Create("ar-SR");
 
 If the directory is not specified, the current directory is used.
 
-SpellCheck works with dictionaries and affix files comming from Open Office [Hunspell format](https://hunspell.github.io/).
+`SpellCheck` works with dictionaries and affix files comming from Open Office [Hunspell format](https://hunspell.github.io/).
 If you need more languages, you can download them from [this GitHub repository](https://github.com/titoBouzout/Dictionaries)
 and put them into destination directory to work with.
 
