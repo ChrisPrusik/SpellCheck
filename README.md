@@ -69,7 +69,7 @@ and don't want to use built-in dictionaries.
 Much simpler way to use `SpellCheck` class is to use built-in dictionaries.
 
 ```csharp
-using SpellCheck.Directories;
+using SpellCheck.Dictionaries;
 
 var factory = new SpellCheckFactory();
 // Create a SpellCheck instance
@@ -92,7 +92,7 @@ There are some built in dictionaries for the following languages:
 ### Custom dictionaries
 
 ```csharp
-using SpellCheck.Directories;
+using SpellCheck.Dictionaries;
 
 var factory = new SpellCheckFactory("C:\Dictionaries");
 
@@ -100,6 +100,8 @@ var factory = new SpellCheckFactory("C:\Dictionaries");
 // in the C:\Dictionaries directory
 var spellChecker = factory.Create("ar-SR");
 ```
+
+If the directory is not specified, the current directory is used.
 
 SpellCheck works with dictionaries and affix files comming from Open Office [Hunspell format](https://hunspell.github.io/).
 If you need more languages, you can download them from [this GitHub repository](https://github.com/titoBouzout/Dictionaries)
