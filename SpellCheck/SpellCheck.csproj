@@ -4,12 +4,20 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <TargetFramework>net7.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\net7.0\SpellCheck.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\net7.0\SpellCheck.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Markdig" Version="0.32.0" />
-      <PackageReference Include="WeCantSpell.Hunspell" Version="4.0.0" />
+        <PackageReference Include="Markdig" Version="0.32.0" />
+        <PackageReference Include="WeCantSpell.Hunspell" Version="4.0.0" />
     </ItemGroup>
-
 
 </Project>

@@ -4,46 +4,69 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <PackageId>SpellCheck.Dictionaries</PackageId>
+        <PackageTags>"spell-checking;text-processing;language-support;csharp;markdown;library;opensource;github;de-de;en-gb;en-us;es-es;fr-fr;it-it;pl-pl;pt-pt</PackageTags>
+        <PackageLicense>LICENSE.txt</PackageLicense>
+        <PackageProjectUrl>https://github.com/ChrisPrusik/SpellCheck</PackageProjectUrl>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIconUrl>icon.png</PackageIconUrl>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Version>1.0.0</Version>
+        <Authors>ChrisPrusik</Authors>
+        <Company>ChrisPrusik</Company>
+        <Copyright>Copyright (C) 2023 Krzysztof Prusik</Copyright>
+        <Description>Offline spell-checking words within texts, including Markdown tags.
+            This library enables accurate detection of spelling errors
+            while considering the presence of Markdown formatting.
+
+            The library utilizes Open Office's *.dic and *.aff files
+            to support spell-checking in over 80 languages from around the world.
+
+The library containing built-in languages 
+de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, pt-PT
+for your convenience and enhances the spell-checking capability by providing preloaded
+dictionaries, streamlining the process of checking
+text accuracy in different linguistic contexts.</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/ChrisPrusik/SpellCheck</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <AssemblyVersion>1.0</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SpellCheck\SpellCheck.csproj" />
+        <ProjectReference Include="..\SpellCheck\SpellCheck.csproj" />
     </ItemGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DocumentationFile>bin\Debug\net7.0\SpellCheck.Dictionaries.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\net7.0\SpellCheck.Dictionaries.xml</DocumentationFile>
+    </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="de_DE.aff" />
-      <EmbeddedResource Include="de_DE.aff" />
-      <None Remove="de_DE.dic" />
-      <EmbeddedResource Include="de_DE.dic" />
-      <None Remove="en_US.aff" />
-      <EmbeddedResource Include="en_US.aff" />
-      <None Remove="en_US.dic" />
-      <EmbeddedResource Include="en_US.dic" />
-      <None Remove="es_ES.aff" />
-      <EmbeddedResource Include="es_ES.aff" />
-      <None Remove="fr_FR.aff" />
-      <EmbeddedResource Include="fr_FR.aff" />
-      <None Remove="fr_FR.dic" />
-      <EmbeddedResource Include="fr_FR.dic" />
-      <None Remove="it_IT.aff" />
-      <EmbeddedResource Include="it_IT.aff" />
-      <None Remove="it_IT.dic" />
-      <EmbeddedResource Include="it_IT.dic" />
-      <None Remove="pl_PL.aff" />
-      <None Remove="pl_PL.dic" />
-      <None Remove="pt_PT.aff" />
-      <EmbeddedResource Include="pl_PL.aff" />
-      <EmbeddedResource Include="pl_PL.dic" />
-      <EmbeddedResource Include="pt_PT.aff" />
-      <None Remove="pt_PT.dic" />
-      <EmbeddedResource Include="pt_PT.dic" />
-      <None Remove="es_ES.dic" />
-      <EmbeddedResource Include="es_ES.dic" />
-      <None Remove="en_GB.aff" />
-      <EmbeddedResource Include="en_GB.aff" />
-      <None Remove="en_GB.dic" />
-      <EmbeddedResource Include="en_GB.dic" />
+        <EmbeddedResource Include="de_DE.aff" />
+        <EmbeddedResource Include="de_DE.dic" />
+        <EmbeddedResource Include="en_US.aff" />
+        <EmbeddedResource Include="en_US.dic" />
+        <EmbeddedResource Include="es_ES.aff" />
+        <EmbeddedResource Include="fr_FR.aff" />
+        <EmbeddedResource Include="fr_FR.dic" />
+        <EmbeddedResource Include="it_IT.aff" />
+        <EmbeddedResource Include="it_IT.dic" />
+        <EmbeddedResource Include="pl_PL.aff" />
+        <EmbeddedResource Include="pl_PL.dic" />
+        <EmbeddedResource Include="pt_PT.aff" />
+        <EmbeddedResource Include="pt_PT.dic" />
+        <EmbeddedResource Include="es_ES.dic" />
+        <EmbeddedResource Include="en_GB.aff" />
+        <EmbeddedResource Include="en_GB.dic" />
+        <None Include="../icon.png" Pack="true" Visible="true" PackagePath="" />
+        <None Include="../README.md" Pack="true" Visible="true" PackagePath="" />
+        <None Include="../LICENSE.txt" Pack="true" Visible="true" PackagePath="" />
     </ItemGroup>
-
 
 </Project>

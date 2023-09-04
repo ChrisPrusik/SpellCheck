@@ -1,5 +1,23 @@
-using System.Diagnostics.CodeAnalysis;
-using Markdig;
+// Copyright (c) 2023 Krzysztof Prusik and contributors
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 using Markdig.Syntax;
 using Markdig.Syntax.Inlines;
 using WeCantSpell.Hunspell;
@@ -7,15 +25,27 @@ using SpellCheck.Extensions;
 
 namespace SpellCheck;
 
-[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+/// <summary>
+/// The <see cref="SpellCheck"/> class provides functionality for spell-checking text,
+/// including Markdown content, and managing dictionaries.
+/// </summary>
 public class SpellCheck : ISpellCheck
 {
     private WordList wordList = WordList.CreateFromWords(new List<string>());
 
+    /// <summary>
+    /// Gets or sets the list of words that should be ignored during spell-checking.
+    /// </summary>
     public List<string> IgnoredWords { get; set; } = new();
 
+    /// <summary>
+    /// Gets the count of words in the dictionary.
+    /// </summary>
     public int DictionaryCount => wordList.RootWords.Count();
 
+    /// <summary>
+    /// Creates a new instance of the <see cref="SpellCheck"/> class with empty settings.
+    /// </summary>
     public static SpellCheck Create()
     {
         var spellCheck = new SpellCheck();
@@ -24,6 +54,9 @@ public class SpellCheck : ISpellCheck
         return spellCheck;
     }
     
+    /// <summary>
+    /// Creates a new instance of the <see cref="SpellCheck"/> class using dictionary streams.
+    /// </summary>
     public static async Task<SpellCheck> CreateFromStreams(Stream dictionary, Stream affix, 
         params string[] ignoredWords)
     {
@@ -33,6 +66,9 @@ public class SpellCheck : ISpellCheck
         return spellCheck;
     }
     
+    /// <summary>
+    /// Creates a new instance of the <see cref="SpellCheck"/> class using dictionary files.
+    /// </summary>
     public static async Task<SpellCheck> CreateFromFiles(string dictionaryPath, string affixPath, 
         params string[] ignoredWords)
     {
@@ -42,21 +78,33 @@ public class SpellCheck : ISpellCheck
         return spellCheck;        
     }
 
+    /// <summary>
+    /// Returns a list of suggested words for a given word.
+    /// </summary>
     public IEnumerable<string> SuggestWord(string word)
     {
         return wordList.Suggest(word);
     }
 
+    /// <summary>
+    /// Sets the list of ignored words for spell-checking.
+    /// </summary>
     public void SetIgnoredWords(params string[] ignoredWords)
     {
         IgnoredWords = ignoredWords.ToList();
     }
     
+    /// <summary>
+    /// Sets the dictionary using streams for dictionary and affix files.
+    /// </summary>
     public async Task SetDictionary(Stream dictionary, Stream affix)
     {
         wordList = await WordList.CreateFromStreamsAsync(dictionary, affix);
     }
     
+    /// <summary>
+    /// Sets the dictionary using file paths for dictionary and optional affix files.
+    /// </summary>
     public async Task SetDictionary(string dictionaryPath, string? affixPath = null)
     {
         if (affixPath is null)
@@ -65,11 +113,17 @@ public class SpellCheck : ISpellCheck
             wordList = await WordList.CreateFromFilesAsync(dictionaryPath, affixPath);
     }
 
+    /// <summary>
+    /// Sets the dictionary using a list of words.
+    /// </summary>
     public void SetDictionary(params string[] words)
     {
         wordList = WordList.CreateFromWords(words);
     }
 
+    /// <summary>
+    /// Checks if a word is spelled correctly.
+    /// </summary>
     public bool IsWordCorrect(string word)
     {
         if (IgnoredWords.Contains(word))
@@ -79,6 +133,9 @@ public class SpellCheck : ISpellCheck
         return string.IsNullOrWhiteSpace(word) || char.IsLetter(firstChar) is false || wordList.Check(word);
     }
     
+    /// <summary>
+    /// Checks if a text is spelled correctly.
+    /// </summary>
     public bool IsTextCorrect(string text)
     {
         try
@@ -92,6 +149,10 @@ public class SpellCheck : ISpellCheck
         }
     }
 
+    /// <summary>
+    /// Checks the spelling of the provided text. Raise an <see cref="SpellCheckException"/>
+    /// if an incorrect word is found.
+    /// </summary>
     public void CheckText(string text)
     {
         var document = text.GetMarkdownDocument();
