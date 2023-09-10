@@ -19,6 +19,8 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
           source-url: https://api.nuget.org/v3/index.json
+      - name: nuget sources
+        run: nuget sources
       - name: Restore
         run: dotnet restore
       - name: Build
