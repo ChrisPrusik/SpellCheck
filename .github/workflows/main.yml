@@ -18,6 +18,8 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: nuget sources
         run: nuget sources
+      - name: Clear NuGet cache
+        run: nuget locals all -clear
       - name: Restore
         run: dotnet restore
       - name: Build
