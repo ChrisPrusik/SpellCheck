@@ -18,8 +18,8 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Restore
-        run: dotnet restore
+        run: dotnet restore --verbosity detailed
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore --verbosity detailed
       - name: Test
-        run: dotnet test --verbosity normal --no-restore
+        run: dotnet test --verbosity normal --no-restore --verbosity detailed
