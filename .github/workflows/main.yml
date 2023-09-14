@@ -18,7 +18,7 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Restore
-        run: dotnet restore --verbosity detailed
+        run: dotnet restore --verbosity detailed --force --disable-parallel
       - name: Build
         run: dotnet build --configuration Release --no-restore --verbosity detailed
       - name: Test
