@@ -19,6 +19,6 @@ jobs:
       - name: Restore
         run: dotnet restore --disable-parallel
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --no-restore
       - name: Test
-        run: dotnet test --configuration Release --no-restore --verbosity detailed
+        run: dotnet test --no-restore
