@@ -28,6 +28,33 @@ namespace SpellCheck.Dictionaries.Extensions;
 /// </summary>
 public static class CultureExtensions
 {
+    /// <summary>
+    ///   Checks if the specified dictionary exists.
+    /// </summary>
+    public static bool SpellCheckExists(this CultureInfo culture,
+        DictionaryTypes type = DictionaryTypes.Dictionary, string? directory = null) =>
+        culture.ResourceSpellCheckExists(type) || culture.FileSpellCheckExists(type, directory);
+
+    /// <summary>
+    ///   Checks if the specified dictionary file exists.
+    /// </summary>
+    public static bool FileSpellCheckExists(this CultureInfo culture,
+        DictionaryTypes type = DictionaryTypes.Dictionary, string? directory = null)
+    {
+        var filePath = culture.GetFilePath(type, directory);
+        return File.Exists(filePath);
+    }
+
+    /// <summary>
+    ///   Checks if the specified dictionary resource exists.
+    /// </summary>
+    public static bool ResourceSpellCheckExists(this CultureInfo culture,
+        DictionaryTypes type = DictionaryTypes.Dictionary)
+    {
+        var assembly = GetSpellCheckResourcesAssembly();
+        var fullName = culture.GetSpellCheckResourceName(type, assembly);
+        return assembly?.GetManifestResourceInfo(fullName) is not null;
+    }
 
     /// <summary>
     ///   Gets the dictionary stream.
@@ -49,10 +76,13 @@ public static class CultureExtensions
     public static Stream? GetSpellCheckFileStream(this CultureInfo culture, 
         DictionaryTypes type = DictionaryTypes.Dictionary, string? directory = null)
     {
-        var fileName = culture.GetDictionaryFileName(type);
-        var filePath = GetFilePath(fileName, directory);
+        var filePath = culture.GetFilePath(type, directory);
         return File.Exists(filePath) ? File.OpenRead(filePath) : null;
     }
+    
+    private static string? GetFilePath(this CultureInfo culture, 
+        DictionaryTypes type = DictionaryTypes.Dictionary, string? directory = null) =>
+        GetFilePath(culture.GetDictionaryFileName(type), directory);
 
     private static string? GetFilePath(string fileName, string? directory)
     {
@@ -60,7 +90,7 @@ public static class CultureExtensions
         if (string.IsNullOrWhiteSpace(directory) is false && Directory.Exists(directory))
             filePath = Path.GetFullPath(Path.Combine(directory, fileName));
 
-        return File.Exists(filePath) ? filePath : null;
+        return filePath;
     }
 
     /// <summary>
@@ -69,13 +99,22 @@ public static class CultureExtensions
     public static Stream? GetSpellCheckResourceStream(this CultureInfo culture, 
         DictionaryTypes type = DictionaryTypes.Dictionary)
     {
-        var assembly = Assembly.GetAssembly(typeof(SpellCheckFactory));
+        var assembly = GetSpellCheckResourcesAssembly();
+        var fullName = culture.GetSpellCheckResourceName(type, assembly);
+        return assembly?.GetManifestResourceStream(fullName);
+    }
+
+    private static Assembly? GetSpellCheckResourcesAssembly() => 
+        Assembly.GetAssembly(typeof(SpellCheckFactory));
+
+    private static string GetSpellCheckResourceName(this CultureInfo culture, DictionaryTypes type, Assembly? assembly)
+    {
         var prefix = assembly?.FullName?.Split(',')[0];
         var name = culture.GetDictionaryFileName(type);
-        var stream = assembly?.GetManifestResourceStream($"{prefix}.{name}");
-        return stream ?? null;
+        var fullName = $"{prefix}.{name}";
+        return fullName;
     }
-    
+
     private static string GetDictionaryFileName(this CultureInfo culture, DictionaryTypes type) =>
         type switch
         {

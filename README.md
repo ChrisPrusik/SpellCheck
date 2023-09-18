@@ -1,17 +1,14 @@
 # SpellCheck Offline Library
 
-Offline spell-checking words within texts, including Markdown tags.
-This library enables accurate detection of spelling errors
-while considering the presence of Markdown formatting.
+Offline spell-checking of words within texts, including Markdown tags. 
+This library enables accurate detection of spelling errors while considering the presence of Markdown formatting.
 
-The library utilizes Open Office's *.dic and *.aff files
-to support spell-checking in over 80 languages from around the world.
+The library utilizes OpenOffice's *.dic and *.aff files to support spell-checking in over 80 languages from around the world.
 
-The library containing built-in languages 
-de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, pt-PT
-for your convenience and enhances the spell-checking capability by providing preloaded
-dictionaries, streamlining the process of checking
-text accuracy in different linguistic contexts.
+The library comes with built-in support for languages such as 
+de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, and pt-PT for your convenience. 
+It enhances the spell-checking capability by providing preloaded dictionaries, 
+thus streamlining the process of checking text for accuracy across different languages.
 
 ## Features
 
@@ -21,12 +18,13 @@ text accuracy in different linguistic contexts.
 4. Extensible and user-friendly API.
 5. Built-in languages: de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, pt-PT
 6. [MIT License](LICENSE.txt)
-7. Fell free to make a pull request.
+7. Feel free to make a pull request.
 
 ## How to use
 
-The SpellCheck library can be used to perform various spell-checking tasks. 
+The `SpellCheck` library can be used to perform various spell-checking tasks. 
 Here's an example of how to get started:
+
 
 ### Installation
 
@@ -39,8 +37,8 @@ Install-Package SpellCheck.Dictionaries
 
 ### SpellCheck
 
-Using of `SpellCheck` class is very simple. 
-Just create an instance of `SpellCheck` class and use it.
+Using the `SpellCheck` class is very simple. 
+Just create an instance of the `SpellCheck` class and use it.
 
 ```csharp
 using SpellCheck;
@@ -50,9 +48,9 @@ var spellChecker = SpellCheck.CreateFromFiles("en-US.dic", "en-US.aff");
 spellChecker.SetIgnoredWords("bulba", "kotek");
 
 // Perform spell-checking
-var isCorrect = spellChecker.IsWordCorrect("hello"); // true
-var isCorrect = spellChecker.IsWordCorrect("kotek"); // true
-var isCorrect = spellChecker.IsWordCorrect("adsasd"); // false
+var isHelloCorrect = spellChecker.IsWordCorrect("hello"); // true
+var isKotekCorrect = spellChecker.IsWordCorrect("kotek"); // true
+var isAdsasdCorrect = spellChecker.IsWordCorrect("adsasd"); // false
 var isTextCorrect = spellChecker.IsTextCorrect("This is an example text."); // true
 
 // Get suggestions for an incorrect word
@@ -66,7 +64,7 @@ and don't want to use built-in dictionaries.
 
 ### Built-in dictionaries 
 
-Much simpler way to use `SpellCheck` class is to use built-in dictionaries.
+A much simpler way to use the SpellCheck class is to use the built-in dictionaries.
 
 ```csharp
 using SpellCheck.Dictionaries;
@@ -106,7 +104,7 @@ var spellChecker = factory.Create("ar-SR");
 
 If the directory is not specified, the current directory is used.
 
-`SpellCheck` works with dictionaries and affix files comming from Open Office [Hunspell format](https://hunspell.github.io/).
+`SpellCheck` works with dictionaries and affix files coming from Open Office [Hunspell format](https://hunspell.github.io/).
 If you need more languages, you can download them from [this GitHub repository](https://github.com/titoBouzout/Dictionaries)
 and put them into destination directory to work with. These files are in UTF-8 format.
 

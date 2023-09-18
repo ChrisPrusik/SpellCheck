@@ -48,6 +48,26 @@ public class CultureExtensionsTests
     }
     
     [Theory]
+    [InlineData("ar-SR", DictionaryTypes.Dictionary)]
+    [InlineData("ar-SR", DictionaryTypes.Affix)]
+    [InlineData("pl-PL", DictionaryTypes.Dictionary, false)]
+    [InlineData("pl-PL", DictionaryTypes.Affix, false)]
+    [InlineData("ru-RU", DictionaryTypes.Dictionary, true, "Test")]
+    [InlineData("ru-RU", DictionaryTypes.Affix, true, "Test")]
+    [InlineData("en-GB", DictionaryTypes.Dictionary, false, "Test")]
+    [InlineData("en-GB", DictionaryTypes.Affix, false, "Test")]
+    public void FileSpellCheckExists(string language, DictionaryTypes type, bool expectedStatus = true, string? directory = null)
+    {
+        var culture = new CultureInfo(language);
+        Assert.NotNull(culture);
+        var exists = culture.FileSpellCheckExists(type, directory);
+        if (expectedStatus)
+            Assert.True(exists);
+        else
+            Assert.False(exists);
+    }
+
+    [Theory]
     [InlineData("pl-PL", DictionaryTypes.Dictionary)]
     [InlineData("pl-PL", DictionaryTypes.Affix)]
     [InlineData("ar-SR", DictionaryTypes.Dictionary, false)]
@@ -63,6 +83,23 @@ public class CultureExtensionsTests
         else
             Assert.Null(stream);
     }
+
+    [Theory]
+    [InlineData("pl-PL", DictionaryTypes.Dictionary)]
+    [InlineData("pl-PL", DictionaryTypes.Affix)]
+    [InlineData("ar-SR", DictionaryTypes.Dictionary, false)]
+    [InlineData("ar-SR", DictionaryTypes.Affix, false)]
+    public void ResourceSpellCheckExists(string language, DictionaryTypes type, bool expectedStatus = true)
+    {
+        var culture = new CultureInfo(language);
+        Assert.NotNull(culture);
+        
+        var exists = culture.ResourceSpellCheckExists(type);
+        if (expectedStatus)
+            Assert.True(exists);
+        else
+            Assert.False(exists);
+    }
     
     [Theory]
     [InlineData("pl-PL", DictionaryTypes.Dictionary)]
@@ -75,11 +112,30 @@ public class CultureExtensionsTests
     {
         var culture = new CultureInfo(language);
         Assert.NotNull(culture);
-        
+
         var stream = culture.GetSpellCheckStream(type);
         if (expectedStatus)
             Assert.NotNull(stream);
         else
             Assert.Null(stream);
+    }
+    
+    [Theory]
+    [InlineData("pl-PL", DictionaryTypes.Dictionary)]
+    [InlineData("pl-PL", DictionaryTypes.Affix)]
+    [InlineData("ar-SR", DictionaryTypes.Dictionary)]
+    [InlineData("ar-SR", DictionaryTypes.Affix)]
+    [InlineData("ru-RU", DictionaryTypes.Dictionary, false)]
+    [InlineData("ru-RU", DictionaryTypes.Affix, false)]
+    public void SpellCheckExists(string language, DictionaryTypes type, bool expectedStatus = true)
+    {
+        var culture = new CultureInfo(language);
+        Assert.NotNull(culture);
+
+        var exists = culture.SpellCheckExists(type);
+        if (expectedStatus)
+            Assert.True(exists);
+        else
+            Assert.False(exists);
     }
 }

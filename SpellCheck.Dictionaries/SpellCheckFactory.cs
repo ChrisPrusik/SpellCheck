@@ -69,23 +69,23 @@ public class SpellCheckFactory : ISpellCheckFactory
     public async Task<SpellCheck> CreateSpellCheck(CultureInfo culture, 
         params string[] ignoredWords)
     {
-        var dictionary = culture.GetSpellCheckStream(DictionaryTypes.Dictionary, DictionaryDirectory);
+        await using var dictionary = culture.GetSpellCheckStream(DictionaryTypes.Dictionary, DictionaryDirectory);
         if (dictionary is null)
             throw new Exception($"Dictionary for '{culture.Name}' not found.");
-        
-        var aff = culture.GetSpellCheckStream(DictionaryTypes.Affix, DictionaryDirectory);
-        if (aff is null)
+
+        await using var affix = culture.GetSpellCheckStream(DictionaryTypes.Affix, DictionaryDirectory);
+        if (affix is null)
             throw new Exception($"Affix for '{culture.Name}' not found.");
         
-        return await SpellCheck.CreateFromStreams(dictionary, aff, ignoredWords);
+        return await SpellCheck.CreateFromStreams(dictionary, affix, ignoredWords);
     }
 
     /// <summary>
     ///   Checks if the specified culture is supported.
     /// </summary>
     public bool Contains(CultureInfo culture) =>
-        culture.GetSpellCheckStream(DictionaryTypes.Dictionary, DictionaryDirectory) is not null &&
-        culture.GetSpellCheckStream(DictionaryTypes.Affix, DictionaryDirectory) is not null;
+        culture.SpellCheckExists(DictionaryTypes.Dictionary, DictionaryDirectory) &&
+        culture.SpellCheckExists(DictionaryTypes.Affix, DictionaryDirectory);
 
     /// <summary>
     ///   Checks if the specified language is supported.

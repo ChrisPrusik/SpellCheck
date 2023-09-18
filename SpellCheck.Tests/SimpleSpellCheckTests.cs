@@ -56,8 +56,8 @@ public class SimpleSpellCheckTests : IClassFixture<Fixture>
         var spellCheck = new SpellCheck();
         Assert.NotNull(spellCheck);
 
-        var dictionary = File.OpenRead(dictionaryPath);
-        var affix = File.OpenRead(affixPath);
+        await using var dictionary = File.OpenRead(dictionaryPath);
+        await using var affix = File.OpenRead(affixPath);
         await spellCheck.SetDictionary(dictionary, affix);
         Assert.True(spellCheck.DictionaryCount > 0);
         foreach (var word in words)
