@@ -4,40 +4,41 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <PackageId>SpellCheck.Dictionaries</PackageId>
         <PackageTags>"spell-checking;text-processing;language-support;csharp;markdown;library;opensource;github;de-de;en-gb;en-us;es-es;fr-fr;it-it;pl-pl;pt-pt</PackageTags>
-        <PackageLicense>LICENSE.txt</PackageLicense>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <PackageProjectUrl>https://github.com/ChrisPrusik/SpellCheck</PackageProjectUrl>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageReleaseNotes>
+            Bugfixes. SpellCheck project has been separated into another nuget repository SpellCheck.Simple 1.1.0.
+        </PackageReleaseNotes>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIconUrl>icon.png</PackageIconUrl>
-        <PackageVersion>1.0.0</PackageVersion>
-        <Version>1.0.0</Version>
-        <Authors>ChrisPrusik</Authors>
-        <Company>ChrisPrusik</Company>
+        <PackageVersion>1.1.0</PackageVersion>
+        <Version>1.1.0</Version>
+        <Authors>Chris Prusik</Authors>
         <Copyright>Copyright (C) 2023 Krzysztof Prusik</Copyright>
-        <Description>Offline spell-checking words within texts, including Markdown tags.
-This library enables accurate detection of spelling errors
-while considering the presence of Markdown formatting.
+        <Description>
+            Offline spell-checking of words within texts, including Markdown tags.
+            This library enables accurate detection of spelling errors while considering the presence of Markdown formatting.
 
-The library utilizes Open Office's *.dic and *.aff files
-to support spell-checking in above 80 languages from around the world.
+            The library utilizes OpenOffice's *.dic and *.aff files to support spell-checking in over 80 languages from around the world.
 
-The library containing built-in languages 
-de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, pt-PT
-for your convenience and enhances the spell-checking capability by providing preloaded
-dictionaries, streamlining the process of checking
-text accuracy in different linguistic contexts.</Description>
+            The library comes with built-in support for languages such as
+            de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, and pt-PT for your convenience.
+            It enhances the spell-checking capability by providing preloaded dictionaries,
+            thus streamlining the process of checking text for accuracy across different languages.
+        </Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/ChrisPrusik/SpellCheck</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
-        <AssemblyVersion>1.0</AssemblyVersion>
+        <AssemblyVersion>1.1</AssemblyVersion>
     </PropertyGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\SpellCheck\SpellCheck.csproj" />
-    </ItemGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <DocumentationFile>bin\Debug\net7.0\SpellCheck.Dictionaries.xml</DocumentationFile>
@@ -45,6 +46,7 @@ text accuracy in different linguistic contexts.</Description>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <DocumentationFile>bin\Release\net7.0\SpellCheck.Dictionaries.xml</DocumentationFile>
+        <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
 
     <ItemGroup>
@@ -67,6 +69,10 @@ text accuracy in different linguistic contexts.</Description>
         <None Include="../icon.png" Pack="true" Visible="true" PackagePath="" />
         <None Include="../README.md" Pack="true" Visible="true" PackagePath="" />
         <None Include="../LICENSE.txt" Pack="true" Visible="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="SpellCheck.Simple" Version="1.1.0" />
     </ItemGroup>
 
 </Project>

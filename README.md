@@ -10,34 +10,20 @@ de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, and pt-PT for your convenience.
 It enhances the spell-checking capability by providing preloaded dictionaries, 
 thus streamlining the process of checking text for accuracy across different languages.
 
-## Features
+> NOTE: Feel free to make a pull request. 
 
-1. Accurate spell-checking for various languages.
-2. Easy integration with Markdown documents.
-3. Flexible options to customize dictionaries and ignored words.
-4. Extensible and user-friendly API.
-5. Built-in languages: de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, pt-PT
-6. [MIT License](LICENSE.txt)
-7. Feel free to make a pull request.
+## SpellCheck.Simple nuget package
 
-## How to use
-
-The `SpellCheck` library can be used to perform various spell-checking tasks. 
+The `SpellCheck.Simple` library can be used to perform various spell-checking tasks. 
 Here's an example of how to get started:
 
-
-### Installation
-
-Install the [NuGet package](https://www.nuget.org/packages/SpellCheck.Dictionaries) 
+Install the [SpellCheck.Simple](https://www.nuget.org/packages/SpellCheck.Simple) nuget package
 from the package manager console:
 
-```powershell
-Install-Package SpellCheck.Dictionaries
+```cmd
+dotnet add package SpellCheck.Simple
 ```
 
-### SpellCheck
-
-Using the `SpellCheck` class is very simple. 
 Just create an instance of the `SpellCheck` class and use it.
 
 ```csharp
@@ -62,9 +48,18 @@ var suggestions = spellChecker.SuggestWord("wor"); // ["world", "worm", "worn", 
 Use this class in the way above if you want to use your own dictionaries 
 and don't want to use built-in dictionaries.
 
-### Built-in dictionaries 
+## SpellCheck.Dictionaries nuget package
 
 A much simpler way to use the SpellCheck class is to use the built-in dictionaries.
+
+Install the [SpellCheck.Dictionaries](https://www.nuget.org/packages/SpellCheck) nuget package
+from the package manager console:
+
+```cmd
+dotnet add package SpellCheck.Dictionaries
+```
+
+Just create an instance of the `SpellCheck` class and use it.
 
 ```csharp
 using SpellCheck.Dictionaries;
@@ -90,7 +85,7 @@ There are some built in dictionaries for the following languages:
 | Polish       | pl-PL   | pl_PL.dic  | pl_PL.aff  |
 | Português    | pt-PT   | pt_PT.dic  | pt_PT.aff  |
 
-### Custom dictionaries
+## Custom dictionaries
 
 ```csharp
 using SpellCheck.Dictionaries;
