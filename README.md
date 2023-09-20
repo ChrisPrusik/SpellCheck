@@ -30,7 +30,7 @@ Just create an instance of the `SpellCheck` class and use it.
 using SpellCheck;
 
 // Create a SpellCheck instance
-var spellChecker = SpellCheck.CreateFromFiles("en-US.dic", "en-US.aff");
+var spellChecker = await SpellCheck.CreateFromFiles("en-US.dic", "en-US.aff");
 spellChecker.SetIgnoredWords("bulba", "kotek");
 
 // Perform spell-checking
