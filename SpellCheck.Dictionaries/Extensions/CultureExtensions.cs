@@ -110,7 +110,7 @@ public static class CultureExtensions
     private static string GetSpellCheckResourceName(this CultureInfo culture, DictionaryTypes type, Assembly? assembly)
     {
         var prefix = assembly?.FullName?.Split(',')[0];
-        var name = culture.GetDictionaryFileName(type);
+        var name = culture.GetDictionaryFileName(type).Replace("-", "_");
         var fullName = $"{prefix}.{name}";
         return fullName;
     }

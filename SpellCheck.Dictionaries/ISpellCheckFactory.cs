@@ -23,7 +23,7 @@ using System.Globalization;
 namespace SpellCheck.Dictionaries;
 
 /// <summary>
-///   SpellCheck factory interface. 
+///   SpellCheck.Simple factory interface. 
 /// </summary>
 public interface ISpellCheckFactory
 {
@@ -33,14 +33,14 @@ public interface ISpellCheckFactory
     string? DictionaryDirectory { get; set; }
 
     /// <summary>
-    ///  Creates a new instance of <see cref="SpellCheck"/> class. 
+    ///  Creates a new instance of <see cref="SpellChecker"/> class. 
     /// </summary>
-    Task<SpellCheck> CreateSpellCheck(CultureInfo culture, params string[] ignoredWords);
+    Task<SpellChecker> CreateSpellChecker(CultureInfo culture, params string[] ignoredWords);
     
     /// <summary>
     ///  Creates a new instance of <see cref="SpellCheck"/> class. 
     /// </summary>
-    Task<SpellCheck> CreateSpellCheck(string language, params string[] ignoredWords);
+    Task<SpellChecker> CreateSpellChecker(string language, params string[] ignoredWords);
 
     /// <summary>
     ///   Checks if the specified culture is supported.

@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Title>SpellCheck.Simple</Title>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PackageId>SpellCheck.Simple</PackageId>
+        <PackageTags>"spell-checking;text-processing;language-support;csharp;markdown;library;opensource;github</PackageTags>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageProjectUrl>https://github.com/ChrisPrusik/SpellCheck</PackageProjectUrl>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageVersion>1.2.0</PackageVersion>
+        <Version>1.2.0</Version>
+        <AssemblyVersion>1.2</AssemblyVersion>
+        <Authors>Chris Prusik</Authors>
+        <Copyright>Copyright (C) 2023 Krzysztof Prusik</Copyright>
+        <Description>
+            Offline spell-checking of words within texts, including Markdown tags.
+            This library enables accurate detection of spelling errors while considering the presence of Markdown formatting.
+
+            The library utilizes OpenOffice's *.dic and *.aff files to support spell-checking in over 80 languages from around the world.
+
+            See also: SpellCheck.Dictionaries nuget package  which comes with built-in support for languages such as 
+            de-DE, en-GB, en-US, es-ES, fr-FR, it-IT, pl-PL, and pt-PT for your convenience. 
+            This feature enhances the library's spell-checking capabilities by providing preloaded dictionaries, 
+            thereby streamlining the process of verifying text accuracy across multiple languages.
+        </Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/ChrisPrusik/SpellCheck</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <RootNamespace>SpellCheck.Simple</RootNamespace>
+        <LangVersion>default</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\net7.0\SpellCheck.Simple.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\net7.0\SpellCheck.Simple.xml</DocumentationFile>
+      <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+        <PackageReference Include="Markdig" Version="0.33.0" />
+        <PackageReference Include="WeCantSpell.Hunspell" Version="4.0.0" />
+        <None Include="../icon.png" Pack="true" Visible="true" PackagePath="" />
+        <None Include="../README.md" Pack="true" Visible="true" PackagePath="" />
+        <None Include="../LICENSE.txt" Pack="true" Visible="true" PackagePath="" />
+    </ItemGroup>
+
+</Project>

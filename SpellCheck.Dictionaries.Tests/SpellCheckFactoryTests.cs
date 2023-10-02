@@ -114,14 +114,14 @@ public class SpellCheckFactoryTests
         string? textToCheck = null, bool expectedStatus = true)
     {
         Assert.True(spellCheckFactory.Contains(language));
-        var spellCheck = await spellCheckFactory.CreateSpellCheck(language, ignoredWords);
+        var spellCheck = await spellCheckFactory.CreateSpellChecker(language, ignoredWords);
         Assert.NotNull(spellCheck);
         Assert.True(spellCheck.DictionaryCount > 0);
 
         CheckText(spellCheck, textToCheck, expectedStatus);
     }
     
-    private static void CheckText(ISpellCheck spellCheck, string? textToCheck, bool expectedStatus)
+    private static void CheckText(ISpellChecker spellCheck, string? textToCheck, bool expectedStatus)
     {
         if (string.IsNullOrWhiteSpace(textToCheck))
             return;
@@ -145,7 +145,7 @@ public class SpellCheckFactoryTests
         string? textToCheck = null, bool expectedStatus = true)
     {
         Assert.True(spellCheckFactory.Contains(culture));
-        var spellCheck = await spellCheckFactory.CreateSpellCheck(culture, ignoredWords);
+        var spellCheck = await spellCheckFactory.CreateSpellChecker(culture, ignoredWords);
         Assert.NotNull(spellCheck);
         Assert.True(spellCheck.DictionaryCount > 0);
         

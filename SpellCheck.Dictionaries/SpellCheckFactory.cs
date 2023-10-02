@@ -25,7 +25,7 @@ using SpellCheck.Dictionaries.Extensions;
 namespace SpellCheck.Dictionaries;
 
 /// <summary>
-///   SpellCheck factory class.
+///   SpellCheck.Simple factory class.
 /// </summary>
 public class SpellCheckFactory : ISpellCheckFactory
 {
@@ -51,22 +51,22 @@ public class SpellCheckFactory : ISpellCheckFactory
     }
 
     /// <summary>
-    ///   Creates a new instance of <see cref="SpellCheck"/> class.
+    ///   Creates a new instance of <see cref="SpellChecker"/> class.
     /// </summary>
-    public async Task<SpellCheck> CreateSpellCheck(string language, 
+    public async Task<SpellChecker> CreateSpellChecker(string language, 
         params string[] ignoredWords)
     {
         var culture = new CultureInfo(language);
         if (culture is null)
             throw new Exception($"Unknown language '{language}'.");
 
-        return await CreateSpellCheck(culture, ignoredWords);
+        return await CreateSpellChecker(culture, ignoredWords);
     }
 
     /// <summary>
-    ///   Creates a new instance of <see cref="SpellCheck"/> class.
+    ///   Creates a new instance of <see cref="SpellChecker"/> class.
     /// </summary>
-    public async Task<SpellCheck> CreateSpellCheck(CultureInfo culture, 
+    public async Task<SpellChecker> CreateSpellChecker(CultureInfo culture, 
         params string[] ignoredWords)
     {
         await using var dictionary = culture.GetSpellCheckStream(DictionaryTypes.Dictionary, DictionaryDirectory);
@@ -77,7 +77,7 @@ public class SpellCheckFactory : ISpellCheckFactory
         if (affix is null)
             throw new Exception($"Affix for '{culture.Name}' not found.");
         
-        return await SpellCheck.CreateFromStreams(dictionary, affix, ignoredWords);
+        return await SpellChecker.CreateFromStreams(dictionary, affix, ignoredWords);
     }
 
     /// <summary>

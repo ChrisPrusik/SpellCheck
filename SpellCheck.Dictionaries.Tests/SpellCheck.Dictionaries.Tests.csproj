@@ -23,7 +23,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\SpellCheck.Dictionaries\SpellCheck.Dictionaries.csproj" />
-        <PackageReference Include="SpellCheck.Simple" Version="1.1.0" />
     </ItemGroup>
 
     <ItemGroup>
