@@ -30,17 +30,21 @@ Just create an instance of the `SpellCheck` class and use it.
 using SpellCheck;
 
 // Create a SpellCheck instance
-var spellChecker = await SpellCheck.CreateFromFiles("en-US.dic", "en-US.aff");
+var spellChecker = await SpellChecker.CreateFromFiles("en_US.dic", "en_US.aff");
 spellChecker.SetIgnoredWords("bulba", "kotek");
 
-// Perform spell-checking
-var isHelloCorrect = spellChecker.IsWordCorrect("hello"); // true
-var isKotekCorrect = spellChecker.IsWordCorrect("kotek"); // true
-var isAdsasdCorrect = spellChecker.IsWordCorrect("adsasd"); // false
-var isTextCorrect = spellChecker.IsTextCorrect("This is an example text."); // true
+// Perform spell-checking on a word
+Console.WriteLine(spellChecker.IsWordCorrect("hello")); // true
+Console.WriteLine(spellChecker.IsWordCorrect("kotek")); // true
+Console.WriteLine(spellChecker.IsWordCorrect("adsasd")); // false
+
+// Perform spell-checking on a text
+Console.WriteLine(spellChecker.IsTextCorrect("This is an example text.")); // true
+Console.WriteLine(spellChecker.IsTextCorrect("This is an ixample text.")); // false
 
 // Get suggestions for an incorrect word
-var suggestions = spellChecker.SuggestWord("wor"); // ["world", "worm", "worn", "worst", "wore", "word"]
+var suggestions = spellChecker.SuggestWord("worl"); 
+Console.WriteLine(string.Join(", ", suggestions)); // work, world
 
 // More advanced usage is possible as well
 ```
@@ -59,17 +63,18 @@ from the package manager console:
 dotnet add package SpellCheck.Dictionaries
 ```
 
-Just create an instance of the `SpellCheck` class and use it.
+Just create an instance of the `SpellChecker` class and use it.
 
 ```csharp
 using SpellCheck.Dictionaries;
 
 var factory = new SpellCheckFactory();
 // Create a SpellCheck instance
-var spellChecker = factory.Create("en-US");
+var arSpellChecker = await factory.CreateSpellChecker("ar_SR");
+var enSpellChecker = await factory.CreateSpellChecker("en_US");
 
-// Create a SpellCheck instance from current culture
-var anotherSpellChecker = factory.Create(CultureInfo.CurrentCulture);
+Console.WriteLine(enSpellChecker.IsTextCorrect("hello world")); // true
+Console.WriteLine(arSpellChecker.IsTextCorrect("متنوعة")); // true
 ```
 
 There are some built in dictionaries for the following languages:
@@ -94,7 +99,7 @@ var factory = new SpellCheckFactory("C:\Dictionaries");
 
 // Create a SpellCheck instance from files ar-SR.dic and ar-SR.aff
 // in the C:\Dictionaries directory
-var spellChecker = factory.Create("ar-SR");
+var spellChecker = factory.CreateSpellCheck("ar-SR");
 ```
 
 If the directory is not specified, the current directory is used.

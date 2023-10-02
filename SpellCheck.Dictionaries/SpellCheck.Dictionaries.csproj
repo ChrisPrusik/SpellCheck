@@ -18,8 +18,9 @@
         </PackageReleaseNotes>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIconUrl>icon.png</PackageIconUrl>
-        <PackageVersion>1.1.0</PackageVersion>
-        <Version>1.1.0</Version>
+        <PackageVersion>1.2.0</PackageVersion>
+        <Version>1.2.0</Version>
+        <AssemblyVersion>1.2</AssemblyVersion>
         <Authors>Chris Prusik</Authors>
         <Copyright>Copyright (C) 2023 Krzysztof Prusik</Copyright>
         <Description>
@@ -37,7 +38,6 @@
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/ChrisPrusik/SpellCheck</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
-        <AssemblyVersion>1.1</AssemblyVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -72,7 +72,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="SpellCheck.Simple" Version="1.1.0" />
+      <PackageReference Include="SpellCheck.Simple" Version="1.2.0" />
     </ItemGroup>
 
 </Project>
